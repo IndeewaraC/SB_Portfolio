@@ -15,7 +15,7 @@ export default async function HomePage() {
       {data.pageConfig
         .filter((conf) => conf.enabled && conf.sectionKey !== 'hero')
         .map((conf, index) => {
-          const Component = SECTION_REGISTRY[conf.sectionKey];
+          const Component = SECTION_REGISTRY[conf.sectionKey as keyof typeof SECTION_REGISTRY];
           if (!Component) return null;
           const sectionNumber = String(index + 1).padStart(2, '0');
           return <Component key={conf.sectionKey} {...data} sectionNumber={sectionNumber} />;
