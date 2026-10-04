@@ -4,7 +4,7 @@ A dynamic, elegant, and fully responsive personal portfolio and academic website
 
 This website features a **real-time integration with Notion as a Headless CMS**. This means that all content (Profile, Education, Projects, Publications, Skills, and even the Navigation Menu) can be updated instantaneously directly from a private Notion dashboard without ever needing to touch the code or redeploy the website.
 
-### 🌐 [View Live Demonstration](https://personal-portfolio-af8d6njg2-indeewaracs-projects.vercel.app)
+### 🌐 [View Live Demonstration](https://personal-portfolio-sb.vercel.app/)
 
 ---
 
