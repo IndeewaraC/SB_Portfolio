@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+  body {
+    background-color: #f8fafc; /* mist */
+    color: #1e293b; /* ink */
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(330, 80%, 94%, 1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(260, 80%, 92%, 1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(210, 100%, 93%, 1) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Thin horizontal rule between every top-level section */
+  section + section {
+    border-top: 1px solid rgba(226, 232, 240, 0.6);
+  }
+}
+
+@layer components {
+
+  /* ── Section numbering label ─── */
+  .section-label {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #3b82f6; /* navy-light */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
+  }
+
+  /* ── Large serif heading ─── */
+  .section-title {
+    font-family: var(--font-lora), 'Lora', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.15;
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Scroll-reveal ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Skill tag — Vibrant Style ─── */
+  .skill-tag {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    color: #475569;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  .skill-tag:hover {
+    transform: translateY(-2px);
+    border-color: #8b5cf6;
+    color: #8b5cf6;
+    box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.15);
+  }
+
+  /* ── Project / skill tag — blue tint ─── */
+  .proj-tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+  }
+  .proj-tag:hover {
+    background: rgba(59, 130, 246, 0.2);
+  }
+
+  /* ── Card hover effect ─── */
+  .hover-line-top {
+    position: relative;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    overflow: hidden;
+  }
+  .hover-line-top::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hover-line-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  }
+  .hover-line-top:hover::before { transform: scaleX(1); }
+
+  /* ── Status dot pulse ─── */
+  .status-dot {
+    animation: pulseDot 2.5s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  50%       { opacity: 0.6; box-shadow: 0 0 0 6px rgba(37, 99, 235, 0); }
+}
+
+@keyframes scrollStrip {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
