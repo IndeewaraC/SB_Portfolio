@@ -3,6 +3,7 @@ import { getPageConfig, getProfile } from '@/lib/notion';
 import { NAV_EXCLUDED_KEYS }         from '@/lib/sectionRegistry.jsx';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 import './globals.css';
 
 // ── Lora — elegant serif for headings and name ───────────────────────────────
@@ -70,6 +71,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Navbar navLinks={navLinks} lastUpdated={lastUpdated} cvUrl={profile.cvUrl} />
         <main>{children}</main>
         <Footer profile={profile} />
+        <ScrollToTop />
       </body>
     </html>
   );
